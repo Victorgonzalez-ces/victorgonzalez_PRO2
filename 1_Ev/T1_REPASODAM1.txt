@@ -1,0 +1,15 @@
+tres paquetes 
+
+1. model donde guardaremos objetos
+2. controller donde estarán las acciones
+3. view estará el GUI
+
+---------------------------------------------
+Clase - vale para definir objetos
+
+- molde
+-variables privadas (encapsulación) -> accedemos a las variables con el getter setter
+-métodos públicos o privados
+-constructor (1 a N)
+- ToString -> sacar representación gráfica del objeto @override
+-metodos y variables static sirven para llamarlos desde otra clase sin necesidad de instanciar a un objeto (peligroso)
