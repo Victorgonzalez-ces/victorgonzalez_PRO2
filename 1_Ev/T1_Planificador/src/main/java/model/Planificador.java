@@ -22,6 +22,7 @@ public class Planificador {
 
     //hacer un metodo que permita filtrar tareas por un tipo de prioridad
     public void filtrarTarea(Prioridades prioridad){
+        System.out.println("listando prioridades: "+prioridad.name());
         for (Tarea tarea:listTareas) {
             if (tarea.getPrioridad() == prioridad){
                 System.out.println(tarea.toString());

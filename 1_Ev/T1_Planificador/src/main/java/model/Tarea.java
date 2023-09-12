@@ -2,10 +2,8 @@ package model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @Getter
 @Setter
 
@@ -18,6 +16,11 @@ public class Tarea {
     private String descripcion;
     //constructores
 
+
+    public Tarea() {
+        this.fecha = "01/01/20";
+        this.prioridad = Prioridades.Baja;
+    }
 
     public Tarea(int id, String titulo) {
         this.id = id;
