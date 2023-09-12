@@ -6,15 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
+@Getter
+@Setter
+
 public class Tarea {
-
-    @Getter
-    @Setter
-
     //variables
     private int id;
     private String titulo;
-    private String prioridad;
+    private Prioridades prioridad;
     private String fecha;
     private String descripcion;
     //constructores
@@ -24,9 +23,10 @@ public class Tarea {
         this.id = id;
         this.titulo = titulo;
         this.fecha = "01/01/20";
+        this.prioridad = Prioridades.Baja;
     }
 
-    public Tarea(int id, String titulo, String prioridad, String descripcion) {
+    public Tarea(int id, String titulo, Prioridades prioridad, String descripcion) {
         this.id = id;
         this.titulo = titulo;
         this.prioridad = prioridad;
