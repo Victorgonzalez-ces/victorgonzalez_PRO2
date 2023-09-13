@@ -18,4 +18,12 @@ public class TareaOcio extends Tarea{
         this.ubicacion = ubicacion;
         this.presupuesto = presupuesto;
     }
+
+    @Override
+    public String toString() {
+        return "TareaOcio{"+super.toString() +
+                "ubicacion='" + ubicacion + '\'' +
+                ", presupuesto=" + presupuesto +
+                '}';
+    }
 }

@@ -16,4 +16,11 @@ public class TareaTrabajo extends Tarea{
         super(id, titulo, prioridad, descripcion);
         this.proyecto = proyecto;
     }
+
+    @Override
+    public String toString() {
+        return "TareaTrabajo{"+super.toString() +
+                "proyecto='" + proyecto + '\'' +
+                '}';
+    }
 }

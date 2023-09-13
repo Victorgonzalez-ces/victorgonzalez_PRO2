@@ -43,8 +43,9 @@ fun main(args: Array<String>) {
 
     edad = 1
     println("El nombre guarado es $nombre $edad")
-    estructuraFor()
-    aleatorio()
+    //estructuraFor()
+    //aleatorio()
+    estructuraWhen()
 }
 
 fun estructuraIf(): Unit {
