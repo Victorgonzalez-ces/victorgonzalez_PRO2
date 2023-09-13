@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+
 @Getter
 @Setter
 
@@ -14,6 +16,10 @@ public class Tarea {
     private Prioridades prioridad;
     private String fecha;
     private String descripcion;
+
+    private boolean completada;
+
+    private ArrayList<Tarea> dependencias;
     //constructores
 
 
@@ -35,6 +41,7 @@ public class Tarea {
         this.prioridad = prioridad;
         this.descripcion = descripcion;
         this.fecha = "01/01/20";
+        this.completada = false;
     }
 
     public static void metodoEstatico(){

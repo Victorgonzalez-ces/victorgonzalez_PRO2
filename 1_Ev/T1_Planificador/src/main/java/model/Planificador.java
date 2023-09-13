@@ -77,4 +77,42 @@ public class Planificador {
             }
         }
     }
+    public void dependenciaTareas(int id){
+        if (existeTarea(id)){
+            System.out.println("de que tarea quieres que dependa");
+            System.out.println("introduce id");
+            int n = leer.nextInt();
+            for (int i = 0; i < listTareas.size(); i++) {
+                if (listTareas.get(i).getId()==n){
+
+                }
+            }
+        }
+    }
+    public boolean existeTarea(int id){
+        if (listTareas.size()==0){
+            return false;
+        }else{
+            for (Tarea item:listTareas) {
+                if (item.getId()==id){
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+
+    public Tarea devuelveTarea(int id){
+        if (listTareas.size()==0){
+            return null;
+        }else{
+            for (Tarea item:listTareas) {
+                if (item.getId()==id){
+                    return item;
+                }
+            }
+            return null;
+        }
+    }
 }
