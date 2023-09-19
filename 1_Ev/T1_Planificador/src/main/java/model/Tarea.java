@@ -28,6 +28,13 @@ public class Tarea {
         this.prioridad = Prioridades.Baja;
     }
 
+    public Tarea(String titulo, String fecha, String descripcion, boolean completada) {
+        this.titulo = titulo;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.completada = completada;
+    }
+
     public Tarea(int id, String titulo) {
         this.id = id;
         this.titulo = titulo;

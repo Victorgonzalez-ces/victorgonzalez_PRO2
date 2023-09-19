@@ -5,12 +5,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TareaOcio extends Tarea{
+public class TareaOcio extends Tarea implements Gestionario{
     private String ubicacion;
     private int presupuesto;
 
     public TareaOcio() {
         super();
+    }
+
+    public TareaOcio(String titulo, String fecha, String descripcion, boolean completada) {
+        super(titulo, fecha, descripcion, completada);
     }
 
     public TareaOcio(int id, String titulo, Prioridades prioridad, String descripcion, String ubicacion, int presupuesto) {
@@ -25,5 +29,10 @@ public class TareaOcio extends Tarea{
                 "ubicacion='" + ubicacion + '\'' +
                 ", presupuesto=" + presupuesto +
                 '}';
+    }
+
+    @Override
+    public void verDetalle() {
+
     }
 }

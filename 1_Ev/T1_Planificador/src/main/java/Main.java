@@ -1,11 +1,16 @@
 import dataBase.GestionDB;
 import model.*;
 
+import java.sql.Connection;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner leer = null;
+        Planificador planificador = new Planificador();
+        //planificador.addGestionableSQL(new TareaOcio("T2Ocio","Fecha2_Ocio","Desc2_Ocio",true));
+        //planificador.addGestionableSQLPS(new TareaTrabajo("T2Trabajo","Fecha2_Trabajo","Desc2_Trabajo",false));
+        planificador.getAllTareas();
         /*Tarea.metodoEstatico();
         Tarea tareaInicial = new Tarea(3,"pepe", Prioridades.Media,"caballo");
         Tarea tareaInicial2 = new Tarea(4,"pepa", Prioridades.Media,"caballo");
@@ -41,8 +46,9 @@ public class Main {
             //2 listar tareas
             //3 modificar tareas: id -> nueva descripcion y nueva prioridad
 
-        GestionDB connection = new GestionDB();
-        Planificador planificador = new Planificador();
+        //GestionDB gestionDB = new GestionDB();
+        //Connection connection = gestionDB.getConnection;
+        /*Planificador planificador = new Planificador();
         int num = 0, id = 0, presupuesto = 0,n1 = 0;
         Prioridades prioridad = null;
         String titulo = null, descripcion = null, ubicacion = null, proyecto = null;
@@ -119,6 +125,6 @@ public class Main {
                 default:
                     System.out.println("introduzca un numero del 1 al 3");
             }
-        }while (num!=0);
+        }while (num!=0);*/
     }
 }
