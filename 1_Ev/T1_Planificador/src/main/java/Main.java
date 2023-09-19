@@ -1,3 +1,4 @@
+import dataBase.GestionDB;
 import model.*;
 
 import java.util.Scanner;
@@ -39,6 +40,8 @@ public class Main {
                 //ocio o trabajo -> pedir datos
             //2 listar tareas
             //3 modificar tareas: id -> nueva descripcion y nueva prioridad
+
+        GestionDB connection = new GestionDB();
         Planificador planificador = new Planificador();
         int num = 0, id = 0, presupuesto = 0,n1 = 0;
         Prioridades prioridad = null;
