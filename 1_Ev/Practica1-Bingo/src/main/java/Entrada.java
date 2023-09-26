@@ -37,6 +37,8 @@ public class Entrada {
                     bingo.comprarCartones(dni,num);
                     break;
                 case 3:
+                    System.out.println("Iniciando juego...");
+                    System.out.println("el jugador ganador es: "+bingo.iniciarJuego().getNombre());
                     break;
                 case 4:
                     System.out.println("cerrando partida...");
