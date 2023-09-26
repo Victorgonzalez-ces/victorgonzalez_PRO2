@@ -11,4 +11,6 @@ module com.example.tema2_estructura {
 
     opens com.example.tema2_estructura to javafx.fxml;
     exports com.example.tema2_estructura;
+    exports com.example.tema2_estructura.controller;
+    opens com.example.tema2_estructura.controller to javafx.fxml;
 }
