@@ -21,9 +21,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="botonIzquierda" mnemonicParsing="false" text="Izquierda" />
-            <Button fx:id="botonCentro" mnemonicParsing="false" text="Centro" GridPane.columnIndex="1" />
-            <Button fx:id="botonDerecha" mnemonicParsing="false" text="Derecha" GridPane.columnIndex="2" />
+            <Button fx:id="botonIzquierda" mnemonicParsing="false" />
+            <Button fx:id="botonCentro" mnemonicParsing="false" GridPane.columnIndex="1" />
+            <Button fx:id="botonDerecha" mnemonicParsing="false" GridPane.columnIndex="2" />
          </children>
          <BorderPane.margin>
             <Insets bottom="20.0" top="20.0" />
