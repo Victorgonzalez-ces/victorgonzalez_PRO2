@@ -73,7 +73,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     }
 
     private void acciones(){
-        
+
         botonNormal.setOnAction(this);
         botonImagen.setOnAction(this);
         botonURL.setOnAction(this);
