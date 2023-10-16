@@ -57,9 +57,9 @@
                         <CheckBox fx:id="checkbox1" mnemonicParsing="false" text="CheckBox 1" GridPane.rowIndex="1" />
                         <CheckBox fx:id="checkbox2" mnemonicParsing="false" text="CheckBox 2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <CheckBox fx:id="checkbox3" mnemonicParsing="false" text="CheckBox 3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <RadioButton fx:id="radiobutton1" mnemonicParsing="false" text="RadioButton 1" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="radiobutton2" mnemonicParsing="false" text="RadioButton 2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="radiobutton3" mnemonicParsing="false" text="RadioButton 3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="radiobutton1" mnemonicParsing="false" text="Tarjeta" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="radiobutton2" mnemonicParsing="false" text="Paypal" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="radiobutton3" mnemonicParsing="false" text="Transferencia" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                         <Button fx:id="botonComprobar" mnemonicParsing="false" text="Comprobar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
