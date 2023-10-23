@@ -1,22 +1,21 @@
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.io.OutputStreamWriter
 
 fun main() {
-    val procesoPadre = ProcessBuilder("java", "-jar", "ProcesoPadre.jar").start()
-    val entradaPadre = BufferedReader(InputStreamReader(procesoPadre.inputStream))
-    val salidaPadre = OutputStreamWriter(procesoPadre.outputStream)
+    // Crear el proceso hijo
+    val processBuilder = ProcessBuilder("java", "-cp", ".", "HijoProceso")
+    val procesoHijo = processBuilder.start()
 
-    println("Proceso Padre: ¿Quién es el autor de tu libro favorito?")
-    val libroFavorito = readLine()
+    // Obtener el stream de salida del proceso hijo
+    val inputStream = BufferedReader(InputStreamReader(procesoHijo.inputStream))
 
-    salidaPadre.write(libroFavorito + "\n")
-    salidaPadre.flush()
+    // Leer la respuesta del proceso hijo
+    val respuesta = inputStream.readLine()
 
-    val respuestaHijo = entradaPadre.readLine()
-    println("Proceso Padre: El autor de $libroFavorito ha escrito los siguientes 5 libros:")
-    println(respuestaHijo)
+    // Imprimir la respuesta del proceso hijo
+    println("Padre: El hijo prefiere $respuesta")
 
-    salidaPadre.close()
-    entradaPadre.close()
+    // Esperar a que el proceso hijo termine
+    val exitCode = procesoHijo.waitFor()
+    println("Padre: El proceso hijo ha terminado con código de salida $exitCode")
 }
