@@ -180,33 +180,46 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             } else if (actionEvent.getSource()==botonPor) {
                 operacion=3;
             } else if (actionEvent.getSource()==botonCos) {
+                resultado = (int) Math.tan(op1);
                 textoCalculadora.setText(String.valueOf(Math.cos(op1)));
+                textoRegistro.appendText(op1+" = "+resultado+"\n");
             } else if (actionEvent.getSource()==botonSen) {
+                resultado = (int) Math.tan(op1);
                 textoCalculadora.setText(String.valueOf(Math.sin(op1)));
+                textoRegistro.appendText(op1+" = "+resultado+"\n");
             } else if (actionEvent.getSource()==botonTan) {
+                resultado = (int) Math.tan(op1);
                 textoCalculadora.setText(String.valueOf(Math.tan(op1)));
+                textoRegistro.appendText(op1+" = "+resultado+"\n");
             } else if (actionEvent.getSource()==botonPow){
                 operacion=5;
             } else if (actionEvent.getSource()==botonRaiz) {
+                resultado = (int) Math.tan(op1);
                 textoCalculadora.setText(String.valueOf(Math.sqrt(op1)));
+                textoRegistro.appendText(op1+" = "+resultado+"\n");
             }
         } else if (actionEvent.getSource()==botonIgual) {
             op2 = Integer.parseInt(textoCalculadora.getText());
             switch (operacion){
                 case 1:
                     resultado = op1 + op2;
+                    textoRegistro.appendText(op1+" + "+op2+" = "+resultado+"\n");
                     break;
                 case 2:
                     resultado = op1 - op2;
+                    textoRegistro.appendText(op1+" - "+op2+" = "+resultado+"\n");
                     break;
                 case 3:
                     resultado = op1 * op2;
+                    textoRegistro.appendText(op1+" * "+op2+" = "+resultado+"\n");
                     break;
                 case 4:
                     resultado = op1 / op2;
+                    textoRegistro.appendText(op1+" / "+op2+" = "+resultado+"\n");
                     break;
                 case 5:
                     resultado = (int)Math.pow(op1,op2);
+                    textoRegistro.appendText(op1+" ^ "+op2+" = "+resultado+"\n");
             }
             textoCalculadora.setText(String.valueOf(resultado));
             isOperando=true;
@@ -229,7 +242,6 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         } else if (actionEvent.getSource()==botonRegistro) {
             if (borderRegistro.getCenter()==null){
                 borderRegistro.setCenter(hBoxRegistro);
-                textoRegistro.appendText(op1+" "+op2+" = "+resultado+"\n");
             }else{
                 borderRegistro.setCenter(null);
             }
