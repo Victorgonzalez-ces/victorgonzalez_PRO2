@@ -1,21 +1,15 @@
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+import java.text.SimpleDateFormat
+import java.util.*
 
 fun main() {
-    // Crear el proceso hijo
-    val processBuilder = ProcessBuilder("java", "-cp", ".", "HijoProceso")
-    val procesoHijo = processBuilder.start()
+    val inputReader = BufferedReader(InputStreamReader(System.`in`))
+    val outputWriter = OutputStreamWriter(System.out)
 
-    // Obtener el stream de salida del proceso hijo
-    val inputStream = BufferedReader(InputStreamReader(procesoHijo.inputStream))
+    val parentMessage = inputReader.readLine()
 
-    // Leer la respuesta del proceso hijo
-    val respuesta = inputStream.readLine()
-
-    // Imprimir la respuesta del proceso hijo
-    println("Padre: El hijo prefiere $respuesta")
-
-    // Esperar a que el proceso hijo termine
-    val exitCode = procesoHijo.waitFor()
-    println("Padre: El proceso hijo ha terminado con código de salida $exitCode")
+    outputWriter.write("$parentMessage\n")
+    outputWriter.flush()
 }

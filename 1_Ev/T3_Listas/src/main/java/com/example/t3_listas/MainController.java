@@ -1,7 +1,11 @@
 package com.example.t3_listas;
 
+import com.example.t3_listas.model.Pelicula;
+import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,6 +19,8 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable, EventHandler<ActionEvent> {
@@ -46,6 +52,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     @FXML
     private MenuItem itemSeleccion;
 
+
     @FXML
     private GridPane parteCentral;
 
@@ -76,6 +83,10 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             }
         });
         itemSalir.setOnAction(this);
+        itemPregunta.setOnAction(this);
+        itemWarning.setOnAction(this);
+        itemSeleccion.setOnAction(this);
+        itemTexto.setOnAction(this);
     }
 
     private void instancias(){
@@ -87,6 +98,46 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     public void handle(ActionEvent actionEvent) {
         if (actionEvent.getSource()==itemSalir){
             System.exit(0);
+        } else if (actionEvent.getSource() == itemPregunta) {
+            Alert dialogoPregunta = new Alert(Alert.AlertType.CONFIRMATION);
+            ButtonType botonUno = new ButtonType("preguntar mas tarde");
+            ButtonType botondos = new ButtonType("aplicar y esperar");
+            dialogoPregunta.getButtonTypes().setAll(botonUno,botondos);
+            Optional<ButtonType> boton = dialogoPregunta.showAndWait();
+            if(boton.get()==botonUno){
+                System.out.println("pulsado boton 1");
+            } else if (boton.get() == botondos) {
+                System.out.println("pulsado boton 2");
+            }
+        } else if (actionEvent.getSource() == itemSeleccion) {
+            ArrayList<String> listaOpciones = new ArrayList<>();
+            ObservableList<Pelicula> listaOpcionesObservable = FXCollections.observableArrayList();
+            listaOpcionesObservable.addAll(new Pelicula("Titulo 1","Genero 1",1232),
+                    new Pelicula("Titulo 2","Genero 2",1442));
+            ChoiceDialog<Pelicula> dialogChoice = new ChoiceDialog<>(listaOpcionesObservable.get(0),listaOpcionesObservable);
+            Optional<Pelicula> respuesta = dialogChoice.showAndWait();
+            if (!respuesta.isPresent()){
+                System.out.println(respuesta.get().getGenero());
+            }else{
+                Alert alertaWarning = new Alert(Alert.AlertType.WARNING);
+                alertaWarning.setHeaderText("Por favor introduce seleccion");
+                alertaWarning.show();
+            }
+        } else if (actionEvent.getSource() == itemTexto) {
+            TextInputDialog dialgoTexto = new TextInputDialog("Por favor introduce un dato");
+            Optional<String> respuesta = dialgoTexto.showAndWait();
+
+            if (respuesta.isPresent()){
+                if (!respuesta.get().isEmpty()){
+                    System.out.println(respuesta.get());
+                }else{
+                    System.out.println("Introducidos datos vacios");
+                }
+            }else{
+                System.out.println("No hay datos");
+            }
         }
     }
+
+
 }

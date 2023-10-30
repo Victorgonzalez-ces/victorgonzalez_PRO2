@@ -1,21 +1,28 @@
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import kotlin.concurrent.thread
 
 fun main() {
-    // Crear el proceso hijo
-    val processBuilder = ProcessBuilder("java", "-cp", ".", "HijoProceso")
-    val procesoHijo = processBuilder.start()
+    val processBuilder = ProcessBuilder("java","-cp","C:\\Program Files\\Java\\jdk-18.0.2.1\\bin\\java.exe\" \"-javaagent:C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2020.2.1\\lib\\idea_rt.jar=49913:C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2020.2.1\\bin\" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath \"C:\\Users\\Usuario DAM2\\Documents\\victorgonzalez_PRO2\\PSP_1Proyecto\\out\\production\\PSP_1Proyecto;C:\\Users\\Usuario DAM2\\.m2\\repository\\org\\jetbrains\\kotlin\\kotlin-stdlib-jdk8\\1.7.10\\kotlin-stdlib-jdk8-1.7.10.jar;C:\\Users\\Usuario DAM2\\.m2\\repository\\org\\jetbrains\\kotlin\\kotlin-stdlib\\1.7.10\\kotlin-stdlib-1.7.10.jar;C:\\Users\\Usuario DAM2\\.m2\\repository\\org\\jetbrains\\kotlin\\kotlin-stdlib-common\\1.7.10\\kotlin-stdlib-common-1.7.10.jar;C:\\Users\\Usuario DAM2\\.m2\\repository\\org\\jetbrains\\annotations\\13.0\\annotations-13.0.jar;C:\\Users\\Usuario DAM2\\.m2\\repository\\org\\jetbrains\\kotlin\\kotlin-stdlib-jdk7\\1.7.10\\kotlin-stdlib-jdk7-1.7.10.jar\" HijoKt")
+    processBuilder.redirectErrorStream(true)
+    val process = processBuilder.start()
 
-    // Obtener el stream de salida del proceso hijo
-    val inputStream = BufferedReader(InputStreamReader(procesoHijo.inputStream))
+    val inputReader = BufferedReader(InputStreamReader(System.`in`))
+    val outputWriter = OutputStreamWriter(process.outputStream)
+    val inputChild = BufferedReader(InputStreamReader(process.inputStream))
 
-    // Leer la respuesta del proceso hijo
-    val respuesta = inputStream.readLine()
+    val dateTime = LocalDateTime.now()
+        .format(DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm:ss a"))
+    val childMessage = "hoy es $dateTime"
 
-    // Imprimir la respuesta del proceso hijo
-    println("Padre: El hijo prefiere $respuesta")
+    outputWriter.write("$childMessage\n")
+    outputWriter.flush()
 
-    // Esperar a que el proceso hijo termine
-    val exitCode = procesoHijo.waitFor()
-    println("Padre: El proceso hijo ha terminado con código de salida $exitCode")
+    val responseMessage = inputChild.readLine()
+    println("el mensaje del proceso hijo es: $responseMessage")
+
+    process.waitFor()
 }
