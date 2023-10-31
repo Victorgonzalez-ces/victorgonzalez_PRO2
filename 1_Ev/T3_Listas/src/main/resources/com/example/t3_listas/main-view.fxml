@@ -37,6 +37,7 @@
                   <MenuItem fx:id="itemPregunta" mnemonicParsing="false" text="Pregunta" />
                   <MenuItem fx:id="itemTexto" mnemonicParsing="false" text="Texto" />
                   <MenuItem fx:id="itemSeleccion" mnemonicParsing="false" text="Seleccion" />
+                <MenuItem fx:id="itemPersonalizado" mnemonicParsing="false" text="Personalizado" />
             </items>
           </Menu>
         </menus>
