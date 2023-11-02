@@ -17,12 +17,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -58,8 +57,26 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private MenuItem itemPersonalizado;
 
     @FXML
-    private GridPane parteCentral;
+    private BorderPane parteCentral;
 
+    @FXML
+    private ComboBox<String> combo;
+
+    @FXML
+    private ChoiceBox<Pelicula> choice;
+
+    private ObservableList<String> listaCombo;
+    private ObservableList<Pelicula> listaChoice;
+
+    @FXML
+    private Spinner<Integer> spinner;
+
+    private SpinnerValueFactory listaSpinner;
+    @FXML
+    private ListView<?> listView;
+
+    @FXML
+    private Button botonFiltrar;
     private ToggleGroup grupoHabilitar;
 
     private DialogoPersoController dialogoPersoController;
@@ -97,9 +114,39 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         itemPregunta.setOnAction(this);
         itemTexto.setOnAction(this);
         itemPersonalizado.setOnAction(this);
+        botonFiltrar.setOnAction(this);
+        combo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                System.out.println(t1);
+            }
+
+        });
+        spinner.valueProperty().addListener(new ChangeListener<Integer>() {
+            @Override
+            public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
+                System.out.println(t1);
+            }
+        });
+        System.out.println( combo.getSelectionModel().getSelectedItem());
     }
 
     private void instancias() {
+        listaCombo = FXCollections.observableArrayList();
+        listaCombo.addAll("Terror","Comedia","Intriga","Infantil");
+        combo.setItems(listaCombo);
+        listaChoice = FXCollections.observableArrayList();
+        listaChoice.addAll(new Pelicula("Pelicla1","terror",1876),
+        new Pelicula("Pelicla2","comedia",1996),
+        new Pelicula("Pelicla3","infantil",1986),
+        new Pelicula("Pelicla4","terror",2000));
+        choice.setItems(listaChoice);
+
+        listaSpinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,5,5);
+        //ObservableList listaOpcines = FXCollections.observableArrayList();
+        /*listaOpcines.addAll("Opción 1","Opción 2","Opción 3" )
+        listaSpinner = new SpinnerValueFactory.ListSpinnerValueFactory<>(listaOpcines);*/
+        spinner.setValueFactory(listaSpinner);
         grupoHabilitar = new ToggleGroup();
         grupoHabilitar.getToggles().addAll(radioMenuHab, radioMenuDesHab);
     }
@@ -201,8 +248,16 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
                 }
             });
             Optional<Pelicula> respuesta =  dialogoPerso.showAndWait();
-            System.out.println(respuesta.get().getTitulo());
+        } else if (actionEvent.getSource() == botonFiltrar)  {
 
+            //combo.getItems().get(1);
+            if (combo.getSelectionModel().getSelectedIndex() != -1 && choice.getSelectionModel().getSelectedIndex() != -1){
+                System.out.println(combo.getSelectionModel().getSelectedItem());
+                System.out.println(choice.getSelectionModel().getSelectedItem().getGenero());
+                System.out.println(spinner.getValue());
+            }else{
+                System.out.println("No hay nada seleccionado");
+            }
         }
 
     }
