@@ -29,6 +29,17 @@
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <RadioMenuItem fx:id="radioMenuHab" mnemonicParsing="false" text="Habilitar" />
                   <RadioMenuItem fx:id="radioMenuDesHab" mnemonicParsing="false" text="Deshabilitar" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem fx:id="itemAgregar" mnemonicParsing="false" text="agregar">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                    </accelerator>
+                </MenuItem>
+                <MenuItem fx:id="itemBorrar" mnemonicParsing="false" text="borrar">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                    </accelerator>
+                </MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Dialogos">

@@ -68,17 +68,23 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private ObservableList<String> listaCombo;
     private ObservableList<Pelicula> listaChoice;
 
+    private ObservableList<Pelicula> listaListView;
     @FXML
     private Spinner<Integer> spinner;
 
     private SpinnerValueFactory listaSpinner;
     @FXML
-    private ListView<?> listView;
+    private ListView<Pelicula> listView;
 
     @FXML
     private Button botonFiltrar;
     private ToggleGroup grupoHabilitar;
 
+    @FXML
+    private MenuItem itemAgregar;
+
+    @FXML
+    private MenuItem itemBorrar;
     private DialogoPersoController dialogoPersoController;
 
     @Override
@@ -115,12 +121,20 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         itemTexto.setOnAction(this);
         itemPersonalizado.setOnAction(this);
         botonFiltrar.setOnAction(this);
+        itemAgregar.setOnAction(this);
+        itemBorrar.setOnAction(this);
         combo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 System.out.println(t1);
             }
 
+        });
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Pelicula>() {
+            @Override
+            public void changed(ObservableValue<? extends Pelicula> observableValue, Pelicula pelicula, Pelicula t1) {
+                System.out.println(pelicula.getTitulo());
+            }
         });
         spinner.valueProperty().addListener(new ChangeListener<Integer>() {
             @Override
@@ -141,7 +155,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         new Pelicula("Pelicla3","infantil",1986),
         new Pelicula("Pelicla4","terror",2000));
         choice.setItems(listaChoice);
-
+        listView.setItems(listaChoice);
         listaSpinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,5,5);
         //ObservableList listaOpcines = FXCollections.observableArrayList();
         /*listaOpcines.addAll("Opción 1","Opción 2","Opción 3" )
@@ -149,6 +163,11 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         spinner.setValueFactory(listaSpinner);
         grupoHabilitar = new ToggleGroup();
         grupoHabilitar.getToggles().addAll(radioMenuHab, radioMenuDesHab);
+        listaListView = FXCollections.observableArrayList();
+        listaListView.addAll(new Pelicula("p1","genero1",1953),
+            new Pelicula("p2","genero2",1953)
+            );
+        listView.setItems(listaListView);
     }
 
     @Override
@@ -248,15 +267,31 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
                 }
             });
             Optional<Pelicula> respuesta =  dialogoPerso.showAndWait();
-        } else if (actionEvent.getSource() == botonFiltrar)  {
+        } else if (actionEvent.getSource() == botonFiltrar) {
 
             //combo.getItems().get(1);
-            if (combo.getSelectionModel().getSelectedIndex() != -1 && choice.getSelectionModel().getSelectedIndex() != -1){
+            if (combo.getSelectionModel().getSelectedIndex() != -1
+                    && choice.getSelectionModel().getSelectedIndex() != -1
+                    && listView.getSelectionModel().getSelectedIndex() != -1) {
                 System.out.println(combo.getSelectionModel().getSelectedItem());
                 System.out.println(choice.getSelectionModel().getSelectedItem().getGenero());
+                System.out.println(listView.getSelectionModel().getSelectedItem().getTitulo());
                 System.out.println(spinner.getValue());
             }else{
                 System.out.println("No hay nada seleccionado");
+            }
+        } else if (actionEvent.getSource() == itemAgregar) {
+            listaListView.add(new Pelicula("Nueva","genero4",2000));
+            listView.refresh();
+        } else if (actionEvent.getSource() == itemBorrar) {
+            if (listView.getSelectionModel().getSelectedIndex()>-1){
+                listaListView.remove(listView.getSelectionModel().getSelectedIndex());
+                listView.refresh();
+                listView.getSelectionModel().select(-1);
+            }else{
+                Alert aviso = new Alert(Alert.AlertType.WARNING);
+                aviso.setHeaderText("No hay elemento seleccionado");
+                aviso.show();
             }
         }
 
