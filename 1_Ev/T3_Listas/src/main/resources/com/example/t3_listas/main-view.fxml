@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.t3_listas.MainController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Acciones">
+            <items>
+              <MenuItem fx:id="itemSalir" mnemonicParsing="false" text="Salir">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <RadioMenuItem fx:id="radioMenuHab" mnemonicParsing="false" text="Habilitar" />
+                  <RadioMenuItem fx:id="radioMenuDesHab" mnemonicParsing="false" text="Deshabilitar" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem fx:id="itemAgregar" mnemonicParsing="false" text="agregar">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                    </accelerator>
+                </MenuItem>
+                <MenuItem fx:id="itemBorrar" mnemonicParsing="false" text="borrar">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                    </accelerator>
+                </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Dialogos">
+            <items>
+              <MenuItem fx:id="itemSimple" mnemonicParsing="false" text="Simple" />
+                  <MenuItem fx:id="itemAlerta" mnemonicParsing="false" text="Alerta" />
+                  <MenuItem fx:id="itemWarning" mnemonicParsing="false" text="Warning" />
+                  <MenuItem fx:id="itemPregunta" mnemonicParsing="false" text="Pregunta" />
+                  <MenuItem fx:id="itemTexto" mnemonicParsing="false" text="Texto" />
+                  <MenuItem fx:id="itemSeleccion" mnemonicParsing="false" text="Seleccion" />
+                <MenuItem fx:id="itemPersonalizado" mnemonicParsing="false" text="Personalizado" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <BorderPane fx:id="parteCentral" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+            <HBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ComboBox fx:id="combo" prefWidth="150.0" />
+                  <ChoiceBox fx:id="choice" prefWidth="150.0" />
+                  <Spinner fx:id="spinner" />
+               </children>
+            </HBox>
+         </top>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </BorderPane>
+   </center>
+   <right>
+      <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </ListView>
+   </right>
+   <bottom>
+      <Button fx:id="botonFiltrar" mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+</BorderPane>
