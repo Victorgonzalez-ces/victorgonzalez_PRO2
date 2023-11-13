@@ -1,6 +1,9 @@
 package com.example.t3_listas;
 
 import com.example.t3_listas.model.Pelicula;
+import com.example.t3_listas.model.PeliculaJSON;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -19,8 +22,14 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -90,8 +99,39 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         instancias();
+        obtenerPeliculas();
         personalizarMenu();
         acciones();
+    }
+
+    private void obtenerPeliculas() {
+        try {
+            URL url = new URL("https://api.themoviedb.org/3/movie/now_playing?api_key=4ef66e12cddbb8fe9d4fd03ac9632f6e&language=es-ES&page=1");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String linea = "";
+            StringBuffer stringBuffer = new StringBuffer();
+            while ((linea = reader.readLine())!=null){
+                stringBuffer.append(linea);
+            }
+            JSONObject jsonObject = new JSONObject(stringBuffer.toString());
+            JSONArray resultadosPeliculas = jsonObject.getJSONArray("results");
+            for (int i = 0; i < resultadosPeliculas.length(); i++) {
+                JSONObject pelicula = resultadosPeliculas.getJSONObject(i);
+                String titulo = pelicula.getString("original_title");
+
+                Gson gson = new Gson();
+                PeliculaJSON peliculaJSON = gson.fromJson(pelicula.toString(), PeliculaJSON.class);
+                System.out.println(peliculaJSON.getTitle());
+            }
+
+
+
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void personalizarMenu() {
