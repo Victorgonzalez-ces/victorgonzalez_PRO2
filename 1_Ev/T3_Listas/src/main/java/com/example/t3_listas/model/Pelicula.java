@@ -1,5 +1,7 @@
 package com.example.t3_listas.model;
 
+import javafx.collections.ObservableList;
+
 public class Pelicula {
 
     private String titulo, genero;
@@ -11,10 +13,13 @@ public class Pelicula {
         this.anio = anio;
     }
 
+    public Pelicula(String titulo) {
+        this.titulo = titulo;
+    }
+
     @Override
     public String toString() {
-        return "titulo=" + titulo + '\'' +
-                ", anio=" + anio;
+        return "titulo= " + titulo;
     }
 
     public String getTitulo() {

@@ -8,7 +8,8 @@ module com.example.t3_listas {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
     requires org.json;
-    requires gson;
+    requires com.google.gson;
     opens com.example.t3_listas to javafx.fxml;
     exports com.example.t3_listas;
+    opens com.example.t3_listas.model;
 }

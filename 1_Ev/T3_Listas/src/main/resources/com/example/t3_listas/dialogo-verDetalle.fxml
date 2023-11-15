@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.example.t3_listas.DialogoVerDetalleController" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <Text fx:id="tituloDialog" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Text>
+   </top>
+   <left>
+      <ImageView fx:id="imagenDialog" fitHeight="174.0" fitWidth="193.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
+      </ImageView>
+   </left>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="votos" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="media" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text fx:id="descripcionDialog" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="24.13671875" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
