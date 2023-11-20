@@ -3,12 +3,12 @@ package com.example.t3_listas;
 import com.example.t3_listas.model.Pelicula;
 import com.example.t3_listas.model.PeliculaJSON;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -34,6 +35,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class MainController implements Initializable, EventHandler<ActionEvent> {
 
@@ -79,6 +81,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private ObservableList<Pelicula> listaChoice;
 
     private ObservableList<PeliculaJSON> listaListView;
+
+    private FilteredList<PeliculaJSON> listaFiltrada;
     @FXML
     private Spinner<Integer> spinner;
 
@@ -88,6 +92,14 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
     @FXML
     private Button botonFiltrar;
+    @FXML
+    private Button botonAdd;
+
+    @FXML
+    private Button botonGet;
+
+    @FXML
+    private Button botonRemove;
     private ToggleGroup grupoHabilitar;
 
     @FXML
@@ -100,7 +112,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private DialogoPersoController dialogoPersoController;
 
     @FXML
-    private TableView<?> tabla;
+    private TableView<PeliculaJSON> tabla;
 
     @FXML
     private TableColumn<?, ?> columnaTitulo;
@@ -114,6 +126,9 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     @FXML
     private TableColumn<?, ?> columnaMedia;
 
+    @FXML
+    private TextField textoFiltrar;
+
 
     public MainController() {
     }
@@ -123,6 +138,13 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         instancias();
         personalizarMenu();
         acciones();
+    }
+
+    private void setTablaDatos() {
+        columnaTitulo.setCellValueFactory(new PropertyValueFactory<>("title"));
+        columnaAdultos.setCellValueFactory(new PropertyValueFactory<>("adult"));
+        columnaMedia.setCellValueFactory(new PropertyValueFactory<>("vote_average"));
+        columnaVotos.setCellValueFactory(new PropertyValueFactory<>("vote_count"));
     }
 
     private void obtenerPeliculas() {
@@ -163,6 +185,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     }
 
     private void acciones() {
+
+
         grupoHabilitar.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle, Toggle t1) {
@@ -185,6 +209,9 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         itemAgregar.setOnAction(this);
         itemBorrar.setOnAction(this);
         botonVerDetalle.setOnAction(this);
+        botonAdd.setOnAction(this);
+        botonGet.setOnAction(this);
+        botonRemove.setOnAction(this);
         combo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -198,6 +225,17 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
                 System.out.println(pelicula.getTitulo());
             }
         });*/
+        textoFiltrar.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                listaFiltrada.setPredicate(new Predicate<PeliculaJSON>() {
+                    @Override
+                    public boolean test(PeliculaJSON peliculaJSON) {
+                        return peliculaJSON.getTitle().contains(t1);
+                    }
+                });
+            }
+        });
         spinner.valueProperty().addListener(new ChangeListener<Integer>() {
             @Override
             public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
@@ -225,11 +263,14 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         spinner.setValueFactory(listaSpinner);
         grupoHabilitar = new ToggleGroup();
         grupoHabilitar.getToggles().addAll(radioMenuHab, radioMenuDesHab);
+
         listaListView = FXCollections.observableArrayList();
         /*listaListView.addAll(new Pelicula("p1","genero1",1953),
             new Pelicula("p2","genero2",1953)
             );*/
         listView.setItems(listaListView);
+        listaFiltrada = new FilteredList<>(listaListView);
+        tabla.setItems(listaListView);
     }
 
     @Override
@@ -342,12 +383,13 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             }else{
                 System.out.println("No hay nada seleccionado");
             }*/
-            Platform.runLater(new Runnable() {
+            /*Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     obtenerPeliculas();
                 }
-            });
+            });*/
+            setTablaDatos();
         } else if (actionEvent.getSource() == itemAgregar) {
             //listaListView.add(new Pelicula("Nueva","genero4",2000));
             listView.refresh();
@@ -387,6 +429,17 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
                 alert.setContentText("No has seleccionado datos");
                 alert.show();
             }
+        }else if (actionEvent.getSource() == botonGet){
+            System.out.println(tabla.getSelectionModel().getSelectedItem().getTitle());
+        }else if (actionEvent.getSource() == botonRemove){
+            if (tabla.getSelectionModel().getSelectedIndex() > -1){
+                tabla.getItems().remove(tabla.getSelectionModel().getSelectedIndex());
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText("Ninguno seleccionado");
+            }
+        }else if (actionEvent.getSource() == botonAdd){
+            tabla.getItems().add(new PeliculaJSON());
         }
 
     }

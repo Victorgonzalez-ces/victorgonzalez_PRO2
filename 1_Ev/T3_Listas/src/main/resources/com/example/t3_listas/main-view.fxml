@@ -13,6 +13,7 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -85,6 +86,9 @@
                </columnResizePolicy>
             </TableView>
          </center>
+         <bottom>
+            <TextField fx:id="textoFiltrar" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </center>
    <right>
@@ -95,9 +99,12 @@
       </ListView>
    </right>
    <bottom>
-      <HBox alignment="CENTER" fillHeight="false" prefHeight="100.0" prefWidth="200.0" spacing="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="100.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="botonFiltrar" mnemonicParsing="false" text="Filtrar" />
+            <Button fx:id="botonAdd" mnemonicParsing="false" text="Añadir" />
+            <Button fx:id="botonGet" mnemonicParsing="false" text="Obtener" />
+            <Button fx:id="botonRemove" mnemonicParsing="false" text="Borrar" />
             <Button fx:id="botonVerDetalle" mnemonicParsing="false" text="Ver detalle" />
          </children>
       </HBox>
