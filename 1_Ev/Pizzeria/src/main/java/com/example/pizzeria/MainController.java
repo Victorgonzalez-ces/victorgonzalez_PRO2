@@ -67,6 +67,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private ComboBox<String> comboPizzas;
 
     private ObservableList<String> listaNombrePizzas;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         instancias();
@@ -84,30 +85,38 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
 
     private void instancias() {
         listaNombrePizzas = FXCollections.observableArrayList();
-        listaNombrePizzas.addAll("Barbacoa","Hawaiana","Jamon y queso","4 Quesos");
+        listaNombrePizzas.addAll("Barbacoa", "Hawaiana", "Jamon y queso", "4 Quesos");
         comboPizzas.setItems(listaNombrePizzas);
         radioGrupo = new ToggleGroup();
-        radioGrupo.getToggles().addAll(radioFamiliar,radioMediana,radioPequena);
+        radioGrupo.getToggles().addAll(radioFamiliar, radioMediana, radioPequena);
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        if (actionEvent.getSource() == botonRealizar){
+        if (actionEvent.getSource() == botonRealizar) {
             if (!textNombre.getText().isEmpty() &&
                     !textTelefono.getText().isEmpty() &&
                     radioGrupo.getSelectedToggle() != null &&
-                    comboPizzas.getSelectionModel().getSelectedIndex() != -1 ){
-                Pizza pizza = new Pizza(comboPizzas.getSelectionModel().getSelectedItem(), radioGrupo.getSelectedToggle().toString(),calcularPrecio(comboPizzas.getSelectionModel().getSelectedItem(),radioGrupo.getSelectedToggle().toString()));
-                Pedido pedido = new Pedido(1,textNombre.getText(),textTelefono.getText(),pizza);
-                areaPedidos.appendText(pedido.getId() +" "+pedido.getNombre()+" "+pedido.getPizza().getNombre());
-            }else{
+                    comboPizzas.getSelectionModel().getSelectedIndex() != -1) {
+                Pizza pizza = new Pizza(comboPizzas.getSelectionModel().getSelectedItem(), radioGrupo.getSelectedToggle().toString(), calcularPrecio(comboPizzas.getValue(), radioGrupo.getSelectedToggle().toString()));
+                Pedido pedido = new Pedido(1, textNombre.getText(), textTelefono.getText(), pizza);
+                areaPedidos.appendText(pedido.getId() + " " + pedido.getNombre() + " " + pedido.getPizza().getNombre());
+                textNombre.setText("");
+                textTelefono.setText("");
+                radioGrupo.selectToggle(null);
+                comboPizzas.getSelectionModel().select(-1);
+                System.out.println(pizza.getPrecio());
+                System.out.println(comboPizzas.getSelectionModel().getSelectedItem() );
+                System.out.println(radioGrupo.getSelectedToggle().getProperties().toString());
+            } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText("Faltan datos");
                 alert.show();
             }
         }
     }
-    public int calcularPrecio(String tipo,String tamanio) {
+
+    public int calcularPrecio(String tipo, String tamanio) {
         if (tipo.equalsIgnoreCase("Barbacoa")) {
             if (tamanio.equalsIgnoreCase("Familiar")) {
                 return 15;
@@ -132,14 +141,15 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             } else if (tamanio.equalsIgnoreCase("Pequeña")) {
                 return 4;
             }
-        }else {
-            if (tamanio.equalsIgnoreCase("Familiar")){
+        } else {
+            if (tamanio.equalsIgnoreCase("Familiar")) {
                 return 17;
             } else if (tamanio.equalsIgnoreCase("Mediana")) {
                 return 13;
             } else if (tamanio.equalsIgnoreCase("Pequeña")) {
                 return 8;
             }
+        }
         return 0;
     }
 }

@@ -1,0 +1,10 @@
+El numero de caracteres de la palabra eeeeeeeee = 9
+El numero de caracteres de la palabra ee = 2
+El numero de caracteres de la palabra e = 1
+El numero de caracteres de la palabra ee = 2
+El numero de caracteres de la palabra efe = 3
+El numero de caracteres de la palabra few = 3
+El numero de caracteres de la palabra fw = 2
+El numero de caracteres de la palabra fe = 2
+El numero de caracteres de la palabra fin = 3
+El número de carácteres totales es de: 27
