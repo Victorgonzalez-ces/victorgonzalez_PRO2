@@ -1,10 +1,14 @@
 package com.example.t3_listas;
 
 import com.example.t3_listas.model.Pelicula;
+import com.example.t3_listas.model.PeliculaJSON;
+import com.google.gson.Gson;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -19,11 +24,18 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class MainController implements Initializable, EventHandler<ActionEvent> {
 
@@ -68,18 +80,30 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private ObservableList<String> listaCombo;
     private ObservableList<Pelicula> listaChoice;
 
-    private ObservableList<Pelicula> listaListView;
+    private ObservableList<PeliculaJSON> listaListView;
+
+    private FilteredList<PeliculaJSON> listaFiltrada;
     @FXML
     private Spinner<Integer> spinner;
 
     private SpinnerValueFactory listaSpinner;
     @FXML
-    private ListView<Pelicula> listView;
+    private ListView<PeliculaJSON> listView;
 
     @FXML
     private Button botonFiltrar;
+    @FXML
+    private Button botonAdd;
+
+    @FXML
+    private Button botonGet;
+
+    @FXML
+    private Button botonRemove;
     private ToggleGroup grupoHabilitar;
 
+    @FXML
+    private Button botonVerDetalle;
     @FXML
     private MenuItem itemAgregar;
 
@@ -87,11 +111,70 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     private MenuItem itemBorrar;
     private DialogoPersoController dialogoPersoController;
 
+    @FXML
+    private TableView<PeliculaJSON> tabla;
+
+    @FXML
+    private TableColumn<?, ?> columnaTitulo;
+
+    @FXML
+    private TableColumn<?, ?> columnaVotos;
+
+    @FXML
+    private TableColumn<?, ?> columnaAdultos;
+
+    @FXML
+    private TableColumn<?, ?> columnaMedia;
+
+    @FXML
+    private TextField textoFiltrar;
+
+
+    public MainController() {
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         instancias();
         personalizarMenu();
         acciones();
+    }
+
+    private void setTablaDatos() {
+        columnaTitulo.setCellValueFactory(new PropertyValueFactory<>("title"));
+        columnaAdultos.setCellValueFactory(new PropertyValueFactory<>("adult"));
+        columnaMedia.setCellValueFactory(new PropertyValueFactory<>("vote_average"));
+        columnaVotos.setCellValueFactory(new PropertyValueFactory<>("vote_count"));
+    }
+
+    private void obtenerPeliculas() {
+        try {
+            URL url = new URL("https://api.themoviedb.org/3/movie/now_playing?api_key=4ef66e12cddbb8fe9d4fd03ac9632f6e&language=es-ES&page=1");
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String linea = "";
+            StringBuffer stringBuffer = new StringBuffer();
+            while ((linea = reader.readLine())!=null){
+                stringBuffer.append(linea);
+            }
+            JSONObject jsonObject = new JSONObject(stringBuffer.toString());
+            JSONArray resultadosPeliculas = jsonObject.getJSONArray("results");
+            for (int i = 0; i < resultadosPeliculas.length(); i++) {
+                JSONObject pelicula = resultadosPeliculas.getJSONObject(i);
+                String titulo = pelicula.getString("original_title");
+
+                Gson gson = new Gson();
+                PeliculaJSON peliculaJSON = gson.fromJson(pelicula.toString(), PeliculaJSON.class);
+                listaListView.addAll(peliculaJSON);
+            }
+
+
+
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void personalizarMenu() {
@@ -102,6 +185,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     }
 
     private void acciones() {
+
+
         grupoHabilitar.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observableValue, Toggle toggle, Toggle t1) {
@@ -123,6 +208,10 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         botonFiltrar.setOnAction(this);
         itemAgregar.setOnAction(this);
         itemBorrar.setOnAction(this);
+        botonVerDetalle.setOnAction(this);
+        botonAdd.setOnAction(this);
+        botonGet.setOnAction(this);
+        botonRemove.setOnAction(this);
         combo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -130,10 +219,21 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             }
 
         });
-        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Pelicula>() {
+        /*listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Pelicula>() {
             @Override
             public void changed(ObservableValue<? extends Pelicula> observableValue, Pelicula pelicula, Pelicula t1) {
                 System.out.println(pelicula.getTitulo());
+            }
+        });*/
+        textoFiltrar.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                listaFiltrada.setPredicate(new Predicate<PeliculaJSON>() {
+                    @Override
+                    public boolean test(PeliculaJSON peliculaJSON) {
+                        return peliculaJSON.getTitle().contains(t1);
+                    }
+                });
             }
         });
         spinner.valueProperty().addListener(new ChangeListener<Integer>() {
@@ -155,7 +255,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         new Pelicula("Pelicla3","infantil",1986),
         new Pelicula("Pelicla4","terror",2000));
         choice.setItems(listaChoice);
-        listView.setItems(listaChoice);
+
         listaSpinner = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,100,5,5);
         //ObservableList listaOpcines = FXCollections.observableArrayList();
         /*listaOpcines.addAll("Opción 1","Opción 2","Opción 3" )
@@ -163,11 +263,14 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         spinner.setValueFactory(listaSpinner);
         grupoHabilitar = new ToggleGroup();
         grupoHabilitar.getToggles().addAll(radioMenuHab, radioMenuDesHab);
+
         listaListView = FXCollections.observableArrayList();
-        listaListView.addAll(new Pelicula("p1","genero1",1953),
+        /*listaListView.addAll(new Pelicula("p1","genero1",1953),
             new Pelicula("p2","genero2",1953)
-            );
+            );*/
         listView.setItems(listaListView);
+        listaFiltrada = new FilteredList<>(listaListView);
+        tabla.setItems(listaListView);
     }
 
     @Override
@@ -270,18 +373,25 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         } else if (actionEvent.getSource() == botonFiltrar) {
 
             //combo.getItems().get(1);
-            if (combo.getSelectionModel().getSelectedIndex() != -1
+            /*if (combo.getSelectionModel().getSelectedIndex() != -1
                     && choice.getSelectionModel().getSelectedIndex() != -1
                     && listView.getSelectionModel().getSelectedIndex() != -1) {
                 System.out.println(combo.getSelectionModel().getSelectedItem());
                 System.out.println(choice.getSelectionModel().getSelectedItem().getGenero());
-                System.out.println(listView.getSelectionModel().getSelectedItem().getTitulo());
+                //System.out.println(listView.getSelectionModel().getSelectedItem().getTitulo());
                 System.out.println(spinner.getValue());
             }else{
                 System.out.println("No hay nada seleccionado");
-            }
+            }*/
+            /*Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    obtenerPeliculas();
+                }
+            });*/
+            setTablaDatos();
         } else if (actionEvent.getSource() == itemAgregar) {
-            listaListView.add(new Pelicula("Nueva","genero4",2000));
+            //listaListView.add(new Pelicula("Nueva","genero4",2000));
             listView.refresh();
         } else if (actionEvent.getSource() == itemBorrar) {
             if (listView.getSelectionModel().getSelectedIndex()>-1){
@@ -293,6 +403,43 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
                 aviso.setHeaderText("No hay elemento seleccionado");
                 aviso.show();
             }
+        } else if (actionEvent.getSource() == botonVerDetalle) {
+            if (listView.getSelectionModel().getSelectedIndex()!=-1){
+                Dialog dialogoVerDetalle = new Dialog();
+
+                dialogoVerDetalle.setTitle("Detalles película");
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("dialogo-verDetalle.fxml"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                    dialogoVerDetalle = loader.getController();
+                    dialogoVerDetalle.getDialogPane().setContent(root);
+                    DialogoVerDetalleController dialogoVerDetalleController = loader.getController();
+                    dialogoVerDetalleController.setPeliculaData(listView.getSelectionModel().getSelectedItem());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                dialogoVerDetalle.getDialogPane().getButtonTypes().setAll(ButtonType.CLOSE);
+
+                dialogoVerDetalle.show();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("No has seleccionado datos");
+                alert.show();
+            }
+        }else if (actionEvent.getSource() == botonGet){
+            System.out.println(tabla.getSelectionModel().getSelectedItem().getTitle());
+        }else if (actionEvent.getSource() == botonRemove){
+            if (tabla.getSelectionModel().getSelectedIndex() > -1){
+                tabla.getItems().remove(tabla.getSelectionModel().getSelectedIndex());
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText("Ninguno seleccionado");
+            }
+        }else if (actionEvent.getSource() == botonAdd){
+            tabla.getItems().add(new PeliculaJSON());
         }
 
     }

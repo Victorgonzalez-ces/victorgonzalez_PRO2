@@ -11,6 +11,9 @@
 <?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -70,6 +73,22 @@
          <BorderPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </BorderPane.margin>
+         <center>
+            <TableView fx:id="tabla" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="columnaTitulo" prefWidth="75.0" text="Titulo" />
+                  <TableColumn fx:id="columnaVotos" prefWidth="75.0" text="Votos" />
+                  <TableColumn fx:id="columnaAdultos" prefWidth="75.0" text="Adultos" />
+                  <TableColumn fx:id="columnaMedia" text="Media" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </center>
+         <bottom>
+            <TextField fx:id="textoFiltrar" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </center>
    <right>
@@ -80,10 +99,14 @@
       </ListView>
    </right>
    <bottom>
-      <Button fx:id="botonFiltrar" mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" />
-         </BorderPane.margin>
-      </Button>
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="100.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="botonFiltrar" mnemonicParsing="false" text="Filtrar" />
+            <Button fx:id="botonAdd" mnemonicParsing="false" text="Añadir" />
+            <Button fx:id="botonGet" mnemonicParsing="false" text="Obtener" />
+            <Button fx:id="botonRemove" mnemonicParsing="false" text="Borrar" />
+            <Button fx:id="botonVerDetalle" mnemonicParsing="false" text="Ver detalle" />
+         </children>
+      </HBox>
    </bottom>
 </BorderPane>
