@@ -1,4 +1,5 @@
-El numero de caracteres de la palabra fekfe = 5
-El numero de caracteres de la palabra fekf = 4
-El numero de caracteres de la palabra fin = 3
-El número de carácteres totales es de: 12
+El numero de caracteres de la frase losamja akef es de = 12
+El numero de caracteres de la frase fesf es de = 4
+El numero de caracteres de la frase fe  es de = 3
+El numero de caracteres de la frase fin es de = 3
+El número de carácteres totales es de: 22

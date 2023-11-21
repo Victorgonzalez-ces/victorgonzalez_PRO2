@@ -44,7 +44,7 @@ fun main() {
         val archivo = File("mensaje.txt")
         PrintWriter(archivo).use { writer ->
             for (palabra in hilo.mensajes){
-                writer.println("El numero de caracteres de la palabra $palabra = ${palabra.length}")
+                writer.println("El numero de caracteres de la frase $palabra es de = ${palabra.length}")
                 letrasTotales+=palabra.length
             }
             writer.println("El número de carácteres totales es de: $letrasTotales")
