@@ -1,6 +1,5 @@
 package com.example.practicajson;
 
-import com.example.practicajson.model.LigasJSON;
 import com.google.gson.Gson;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -11,12 +10,15 @@ import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Callback;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -25,6 +27,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable, EventHandler<ActionEvent> {
@@ -88,6 +91,7 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
     @FXML
     private TableView<LigasJSON> tablaLigas;
 
+    private DialogoPersoController dialogoPersoController;
     private ObservableList<LigasJSON> listaListViewLigas;
     private FilteredList<LigasJSON> listaFiltrada;
 
@@ -110,8 +114,8 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
         try {
             listaListViewLigas.clear();
             URL url = new URL("https://www.thesportsdb.com/api/v1/json/3/all_leagues.php");
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String linea = null;
             StringBuffer stringBuffer = new StringBuffer();
             while ((linea = reader.readLine()) != null){
@@ -200,6 +204,37 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             alertSimple.setHeaderText("Cabecera de cuadro simple");
             alertSimple.setContentText("Información de cuadro simple");
             alertSimple.show();
+        } else if (actionEvent.getSource() == menuAlerta) {
+            Alert alertAlerta = new Alert(Alert.AlertType.WARNING);
+            alertAlerta.setHeaderText("Este es el cuadro de alerta");
+            alertAlerta.setContentText("Cuadro de alerta para lo que necesites");
+        } else if (actionEvent.getSource() == menuPersonalizado) {
+            Dialog<LigasJSON> dialogoLiga = new Dialog<>();
+            dialogoLiga.setTitle("Dialogo de nueva liga");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dialogoPerso-view.fxml"));
+            Parent root = null;
+            try {
+                root = fxmlLoader.load();
+                dialogoPersoController = fxmlLoader.getController();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            dialogoLiga.getDialogPane().setContent(root);
+            dialogoLiga.getDialogPane().getButtonTypes().addAll(ButtonType.APPLY,ButtonType.CLOSE);
+            dialogoLiga.setResultConverter(new Callback<ButtonType, LigasJSON>() {
+                @Override
+                public LigasJSON call(ButtonType buttonType) {
+                    if (buttonType == ButtonType.APPLY){
+                        if (dialogoPersoController.isLiga()){
+                            return dialogoPersoController.getLiga();
+                        }
+                    }
+                    return null;
+                }
+            });
+            Optional<LigasJSON> ligasJ = dialogoLiga.showAndWait();
+            System.out.println(ligasJ.get().getStrSport());
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.practicajson.model;
+package com.example.practicajson;
 
 public class LigasJSON {
     private String idLeague;
@@ -11,6 +11,11 @@ public class LigasJSON {
         this.strLeague = strLeague;
         this.strSport = strSport;
         this.strLeagueAlternate = strLeagueAlternate;
+    }
+
+    public LigasJSON(String idLeague, String strLeague) {
+        this.idLeague = idLeague;
+        this.strLeague = strLeague;
     }
 
     public LigasJSON() {
