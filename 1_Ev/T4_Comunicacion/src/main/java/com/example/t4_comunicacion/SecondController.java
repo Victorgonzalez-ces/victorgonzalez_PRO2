@@ -62,4 +62,8 @@ public class SecondController implements Initializable,EventHandler<ActionEvent>
     }
 
 
+    @Override
+    public void handle(ActionEvent actionEvent) {
+
+    }
 }
