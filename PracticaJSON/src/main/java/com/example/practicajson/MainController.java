@@ -26,6 +26,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -235,7 +236,30 @@ public class MainController implements Initializable, EventHandler<ActionEvent> 
             });
             Optional<LigasJSON> ligasJ = dialogoLiga.showAndWait();
             System.out.println(ligasJ.get().getStrSport());
+        } else if (actionEvent.getSource() == menuTexto) {
+            if (listViewLigas.getSelectionModel().getSelectedIndex() != -1){
+                Dialog dialog = new Dialog();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ofiafa-viee"));
+                Parent root = null;
+                try {
+                    root = loader.load();
+                    dialog.getDialogPane().setContent(root);
+                    dialogoPersoController = loader.getController();
+                    //dats a la cntroladra
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+                dialog.show();
+            } else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("Seleccione na liga");
+            }
+
         }
     }
+
+
 
 }
