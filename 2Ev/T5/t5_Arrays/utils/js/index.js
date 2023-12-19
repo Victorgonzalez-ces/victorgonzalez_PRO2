@@ -4,7 +4,7 @@ let lenguajeJson = {
     usos: ["back","media"],
     dificultad: "Media",
     mostrarDatos: function(param){
-        console.log(`Parametro: ${param}`)
+        console.log(`Parametro: ${param }`)
         console.log(`Nombre: ${this.nombre}`)
         console.log(`Version: ${this.version}`)
         console.log(`tecnologia: ${this.tecnologia}`)
@@ -25,7 +25,7 @@ const lenguajes = [
 lenguajes.forEach((element, index)=>{
     if (index % 2 == 0){
         console.log(`${index + 1} , ${element}`)
-    }
+    }yuyytu6
 });*/
 
 /*lenguajes
