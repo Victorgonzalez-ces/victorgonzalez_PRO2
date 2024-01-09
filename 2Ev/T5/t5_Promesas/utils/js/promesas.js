@@ -75,3 +75,5 @@ function consultarUsuarios(){
     });
 }
 consultarUsuarios();
+
+//animate.css
