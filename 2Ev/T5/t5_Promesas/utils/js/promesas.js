@@ -2,6 +2,8 @@ let boton = document.querySelector("button");
 let span = document.querySelector("span");
 let listaMasculina = document.querySelector("#lista-masculino")
 let listaFemenina = document.querySelector("#lista-femenino")
+let numeroPersonas = document.querySelector("#numeroUsuario")
+let url = `https://randomuser.me/api/?results=${numeroPersonas}`;
 /*let contador = 0;
 setTimeout(() => {
     console.log("Ejecucion postergada");
@@ -48,7 +50,8 @@ promesa
 //https://randomuser.me/api/?results=50
 
 function consultarUsuarios(){
-    fetch("https://randomuser.me/api/?results=50")
+    console.log(numeroPersonas);
+    fetch(url)
     .then((res)=>{
         console.log(res)
         if(res.ok){
@@ -74,6 +77,9 @@ function consultarUsuarios(){
         console.log("URL desconocida");
     });
 }
-consultarUsuarios();
+
+boton.addEventListener("click", () => {
+    consultarUsuarios();
+});
 
 //animate.css
