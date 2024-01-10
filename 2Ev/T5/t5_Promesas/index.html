@@ -15,26 +15,29 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Document</title>
   </head>
   <body>
     <main>
       <div class="container">
-        
-        <input type="number" id="numeroUsuario" name="numeroUsuario">
+        <input
+          type="number"
+          id="numeroUsuario"
+          placeholder="introduce resultados: "
+        />
         <button class="btn btn-primary">Iniciar tarea</button>
         <div class="row">
           <div class="col">
             <h2 style="text-align: center">Masculino</h2>
-            <ul id="lista-masculino" class="list-group">
-              <li class="list-group-item" style="text-align: center">Nombre - Apellido</li>
-            </ul>
+            <ul id="lista-masculino" class="list-group"></ul>
           </div>
           <div class="col">
             <h2 style="text-align: center">Femenino</h2>
-            <ul id="lista-femenino" class="list-group">
-              <li class="list-group-item" style="text-align: center">Nombre - Apellido</li>
-            </ul>
+            <ul id="lista-femenino" class="list-group"></ul>
           </div>
         </div>
       </div>

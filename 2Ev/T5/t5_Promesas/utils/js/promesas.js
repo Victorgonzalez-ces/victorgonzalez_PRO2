@@ -2,8 +2,7 @@ let boton = document.querySelector("button");
 let span = document.querySelector("span");
 let listaMasculina = document.querySelector("#lista-masculino")
 let listaFemenina = document.querySelector("#lista-femenino")
-let numeroPersonas = document.querySelector("#numeroUsuario")
-let url = `https://randomuser.me/api/?results=${numeroPersonas}`;
+
 /*let contador = 0;
 setTimeout(() => {
     console.log("Ejecucion postergada");
@@ -50,8 +49,10 @@ promesa
 //https://randomuser.me/api/?results=50
 
 function consultarUsuarios(){
-    console.log(numeroPersonas);
-    fetch(url)
+    const numeroPersonas = document.getElementById("numeroUsuario").value;
+    listaFemenina.innerHTML = "";
+    listaMasculina.innerHTML = "";
+    fetch(`https://randomuser.me/api/?results=${numeroPersonas}`)
     .then((res)=>{
         console.log(res)
         if(res.ok){
@@ -62,15 +63,20 @@ function consultarUsuarios(){
     .then((res1)=>{
         //sacar nombre y apellido de todos los usuarios (nombre - apellido)
         res1.results.forEach(element => {
-            if (element.gender == "female"){
-                listaFemenina.innerHTML += 
-                `<li class='list-group-item' style='text-align: center'>
-                ${element.name.first} - ${element.name.last}</li>`;
-            }else{
-                listaMasculina.innerHTML +=
-                 `<li class='list-group-item' style='text-align: center'>
-                 ${element.name.first} - ${element.name.last}</li>`;
-            }
+            setTimeout(function () {
+                let nodo = document.createElement("li");
+                nodo.textContent = `${element.name.first} - ${element.name.last}`;
+                nodo.className = "list-group-item animated__animate animate__bounceinup";
+                if (element.gender == "female"){
+                    listaFemenina.innerHTML += 
+                    `<li class='list-group-item' style='text-align: center'>
+                    ${element.name.first} - ${element.name.last}</li>`;
+                }else{
+                    listaMasculina.innerHTML +=
+                     `<li class='list-group-item' style='text-align: center'>
+                     ${element.name.first} - ${element.name.last}</li>`;
+                }
+            },500)
         });
     })
     .catch(()=>{
