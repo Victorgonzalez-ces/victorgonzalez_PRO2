@@ -37,9 +37,9 @@ function cargarProductos(categori,num){
             <p class='card-text'>${element.stock}</p> 
             <div class="row">
                 <button class="col btn btn-primary"
-                id="comprar">comprar</Button>
+                id="comprar-${element.id}">comprar</Button>
                 <button class="col btn btn-primary"
-                id="verDetalle"
+                id=verDetalle-${element.id}
                 style="background-color: green"
                 >ver detalle</Button>
             </div>
