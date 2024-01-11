@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,39 +16,40 @@
       crossorigin="anonymous"
     ></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <main class="container m-4">
-        <div class="row">
-            <div class="col-8">
-                <h1 style="text-align: center">TIENDA</h1>
-                <div class="row" >
-                    <select id="categorias" class="col form-select">
-                        <option>All</option>
-                    </select>
-                    <input 
-                    type="number" 
-                    id="numeroProductos" 
-                    class="col form-control" 
-                    placeholder="Introduzca un número: ">
-                    <button 
-                    class="col btn btn-primary" 
-                    id="search">Search</button>
-                </div>
-                <div class="row" id="cartas">
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="row" style="height: 50%">
-                    <h2 style="text-align: center">Carrito</h2>
-                    <span style="text-align: center">0</span>
-                </div>
-                <div class="row" style="height: 50%">
-                    <h2 style="text-align: center">Detalle</h2>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-8">
+          <h1 style="text-align: center">TIENDA</h1>
+          <div class="row">
+            <select id="categorias" class="col form-select">
+              <option>All</option>
+            </select>
+            <input
+              type="number"
+              id="numeroProductos"
+              class="col form-control"
+              placeholder="Introduzca un número: "
+            />
+            <button class="col btn btn-primary" id="search">Search</button>
+          </div>
+          <div class="row" id="cartas"></div>
         </div>
+        <div class="col-4">
+          <div class="row" style="height: 50%">
+            <h2 style="text-align: center">Carrito</h2>
+            <span id="numeroCarrito" style="text-align: center">0</span>
+            <ul class="list-group" id="lista"></ul>
+            <button id="botonVaciarCarrito" type="button" class="btn btn-success">Comprar</button>
+          </div>
+          <div class="row" style="height: 50%">
+            <h2 style="text-align: center">Detalle</h2>
+            <ul class="list-group" id="listaDetalle"></ul>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="./utils/js/ejercicio.js"></script>
-</body>
+  </body>
 </html>
