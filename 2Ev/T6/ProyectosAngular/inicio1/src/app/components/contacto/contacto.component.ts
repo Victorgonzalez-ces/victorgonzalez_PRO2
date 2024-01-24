@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './contacto.component.css'
 })
 export class ContactoComponent {
-
+    seleccionSelect = '-1';
+    modificarSeleccion(seleccion:string){
+      this.seleccionSelect = seleccion;
+    }
 }

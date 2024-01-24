@@ -1,2 +1,12 @@
-<h2>Informacion personal</h2>
-<img [src]="imagenPerfil" alt="imagen perfil" style="height: 200px"/>
+
+@if (mostrarContenido){
+    <h2>Informacion personal</h2>
+    <img [src]="imagenPerfil" alt="imagen perfil" style="height: 200px"/>
+}
+<div class="mt-4">
+    <button (click)="pulsacionBoton()" class="btn btn-primary">{{textoBoton}}</button>
+</div>
+
+
+    
+        
