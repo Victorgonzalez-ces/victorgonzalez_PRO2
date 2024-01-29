@@ -7,5 +7,27 @@ import { CocheClase } from '../../model/coche';
 })
 
 export class concesionarioComponent{
-    listado: CocheClase[]
+    listado: CocheClase[] = [];
+    listaCocheBuscado:any[] = [];
+    listadoCochesMotor: CocheClase [] = [];
+    agregarCoche(
+      marca: string,
+      modelo: string,
+      matricula: string,
+      cv: string,
+      cc: string,
+      motor: string
+    ) {
+      this.listado.push(
+        new CocheClase(marca, modelo, Number(cv), Number(cc), matricula, motor)
+      );
+    }
+    buscarCoche(){}
+
+    buscarTipoMotor(motor: string){
+      this.listaCocheBuscado = this.listado.filter((item: CocheClase) => {
+        return item.getMotor == motor;
+      });
+    }
+    
 }

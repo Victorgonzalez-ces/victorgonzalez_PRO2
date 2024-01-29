@@ -6,15 +6,45 @@
             <input type="number" class="form-control mb-4" #inputCv placeholder="introduce cv"/>
             <input type="number" class="form-control mb-4" #inputCC placeholder="introduce cc"/>
             <input type="text" class="form-control mb-4" #inputMatricula placeholder="introduce matricula"/>
-            <select class="form-select mb-4">
+            <select class="form-select mb-4" #selectMotor>
                 <option>Termico</option>
                 <option>Electrico</option>
             </select>
-            <button class="btn btn-primary">Agregar</button>
+            <button (click)="
+            agregarCoche(
+              inputMarca.value,
+              inputModelo.value,
+              inputMatricula.value,
+              inputCv.value,
+              inputCC.value,
+              selectMotor.value
+            )
+          "
+     class="btn btn-primary">Agregar</button>
             @if (listado.length>0){
-
+                <p>El numero de coches es: {{ listado.length }}</p>
             }
         </div>
+        <div class="col">
+            <input type="text" placeholder="buscar por matricula" #inputMatricula/>
+            <select class="form-select" #selectmotor>
+                <option>termico</option>
+                <option>Electrico</option>
+            </select>
+            <button (click)="buscarCoche(inputmatricula.value)">Buscar</button>
+            <button (click)="buscarTipoMotor(selectmotor.value)">Buscar</button>
+    @if (listaCocheBuscado.length>0) {
+        <div class="card" style="width: 18rem">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">
+                {{ listaCocheBuscado[0].getMatricula }}
+                </h5>
+            </div>
+        </div>
+        } @else { }
+
+     @for (item of)
     </div>
 </main>
     
