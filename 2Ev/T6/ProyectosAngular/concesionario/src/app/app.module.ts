@@ -3,11 +3,11 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { concesionarioComponent } from './components/concesionario/concesionario';
+import { ConcesionarioComponent } from './components/concesionario/concesionario';
 @NgModule({
   declarations: [
     AppComponent,
-    concesionarioComponent
+    ConcesionarioComponent
   ],
   imports: [
     BrowserModule,

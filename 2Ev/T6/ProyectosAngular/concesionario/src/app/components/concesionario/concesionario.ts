@@ -1,33 +1,42 @@
 import { Component } from '@angular/core';
-import { CocheClase } from '../../model/coche';
+import { Coche, CocheClase } from '../../model/coche';
 
 @Component({
-  selector: 'app-concesionario',
+  selector: 'concesionario-concesionario',
   templateUrl: './concesionario.html',
 })
+export class ConcesionarioComponent {
+  motorBuscar: string = '';
+  matriculaBuscar: string = '';
+  listado: CocheClase[] = [];
+  listaCocheBuscado: any[] = [];
+  listadoCochesMotor: CocheClase[] = [];
 
-export class concesionarioComponent{
-    listado: CocheClase[] = [];
-    listaCocheBuscado:any[] = [];
-    listadoCochesMotor: CocheClase [] = [];
-    agregarCoche(
-      marca: string,
-      modelo: string,
-      matricula: string,
-      cv: string,
-      cc: string,
-      motor: string
-    ) {
-      this.listado.push(
-        new CocheClase(marca, modelo, Number(cv), Number(cc), matricula, motor)
-      );
-    }
-    buscarCoche(){}
+  agregarCoche(
+    marca: string,
+    modelo: string,
+    matricula: string,
+    cv: string,
+    cc: string,
+    motor: string
+  ) {
+    this.listado.push(
+      new CocheClase(marca, modelo, Number(cv), Number(cc), matricula, motor)
+    );
+  }
 
-    buscarTipoMotor(motor: string){
-      this.listaCocheBuscado = this.listado.filter((item: CocheClase) => {
-        return item.getMotor == motor;
-      });
-    }
-    
+  buscarCoche(matricula: string) {
+    this.listaCocheBuscado = [];
+    let cocheBuscado = this.listado.find((item: CocheClase) => {
+      return item.getMatricula == matricula;
+    });
+
+    this.listaCocheBuscado.push(cocheBuscado);
+  }
+
+  buscarTipoMotor(motor: string) {
+    this.listadoCochesMotor = this.listado.filter((item: CocheClase) => {
+      return item.getMotor.toLowerCase() == motor.toLowerCase();
+    });
+  }
 }
