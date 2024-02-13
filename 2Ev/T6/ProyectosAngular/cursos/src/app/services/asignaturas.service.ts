@@ -67,6 +67,22 @@ export class AsignaturasService {
   getAllAsignaturas(): Asignatura[]{
     return this.asignaturas
   }
+  getProfesorAsignaturas(nombre: string): Asignatura[]{
+
+   return this.asignaturas.filter((item: Asignatura)=>{
+      return item.profesor == nombre
+    })
+  }
+  getConocimientoAsigmatura(conocimiento: string): Asignatura[]{
+    return this.asignaturas.filter((item:Asignatura)=>{
+      return item.conocimientos
+    })
+  }
+  getCursoAsignatura(curso: string): Asignatura[]{
+    return this.asignaturas.filter((item)=>{
+      return item.curso == curso
+    })
+  }
   getAllAsignaturasCurso(curso: String){
     return this.asignaturas.filter((item) => {
       item.curso.includes(curso.toString())

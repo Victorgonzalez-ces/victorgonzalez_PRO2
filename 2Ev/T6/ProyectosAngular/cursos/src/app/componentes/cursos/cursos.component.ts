@@ -11,7 +11,7 @@ export class CursosComponent {
   
   asignaturas: Asignatura[] = [];
     constructor(private servicio: AsignaturasService){
-      this.asignaturas = servicio.getAllAsignaturas();
+      this.asignaturas = this.servicio.getAllAsignaturas();
     }
 
   

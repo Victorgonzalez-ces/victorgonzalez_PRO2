@@ -7,17 +7,21 @@ import { InformacionComponent } from './componentes/informacion/informacion.comp
 import { CursosComponent } from './componentes/cursos/cursos.component';
 import { ImagenesPipe } from './pipes/imagenes.pipe';
 import { AsignaturasService } from './services/asignaturas.service';
+import { BuscadorComponent } from './componentes/buscador/buscador.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     InformacionComponent,
     CursosComponent,
-    ImagenesPipe
+    ImagenesPipe,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(), AsignaturasService
