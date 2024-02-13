@@ -1,0 +1,62 @@
+<main class="row">
+    <p>Esto es una app para un {{concesionario | uppercase}}</p>
+    <br/>
+    <span>El número de ventas es de: {{20000 | currency: "EUR" : true}}</span>
+    <br/>
+
+    <div class="col">
+    <input 
+      [(ngModel)]="marca"
+      type="text"
+      class="form-control mb-4"
+      #inputMarca
+      placeholder="Introduce marca"
+    />
+    <input
+      [(ngModel)]="modelo"
+      type="text"
+      class="form-control mb-4"
+      #inputmodelo
+      placeholder="introduce modelo"
+    />
+    <input
+      [(ngModel)]="cv"
+      type="number"
+      class="form-control mb-4"
+      #inputcv
+      placeholder="introduce cv"
+    />
+    <input
+      [(ngModel)]="cc"
+      type="number"
+      class="form-control mb-4"
+      #inputcc
+      placeholder="introduce cc"
+    />
+    <input
+      [(ngModel)]="matricula"
+      type="text"
+      class="form-control mb-4"
+      #inputmatricula
+      placeholder="introduce matricula"
+    />
+    <input
+      [(ngModel)]="precio"
+      type="number"
+      class="form-control mb-4"
+      #inputmatricula
+      placeholder="introduce precio"
+    />
+    <select [(ngModel)]="motor" class="form-select mb-4" #selectmotor>
+        <option>Termico</option>
+        <option>Electrico</option>
+    </select> 
+
+    <button (click)="agregarCoche()" class="btn btn-primary">Agregar</button>
+
+    <div *ngIf="listado.length > 0">
+        <p>El numero de coches es: {{ listado.length }}</p>
+    </div>
+    
+    </div>
+</main>
