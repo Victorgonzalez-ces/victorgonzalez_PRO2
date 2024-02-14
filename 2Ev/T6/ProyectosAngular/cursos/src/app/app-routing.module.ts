@@ -15,7 +15,7 @@ const routes: Routes = [
     component:BuscadorComponent
   },
   {
-    path: 'buscador/:curso',
+    path: 'buscador/:curso/:nivel',
     component:BuscadorComponent
   },
   {

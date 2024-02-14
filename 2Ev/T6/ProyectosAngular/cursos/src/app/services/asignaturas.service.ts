@@ -11,7 +11,7 @@ export class AsignaturasService {
       siglas: 'PRO',
       horas: 8,
       profesor: 'Borja Martin Herrera',
-      curso: 'DAM|DAW',
+      curso: 'DAM',
       nivel: 1,
       conocimientos: ['Java', 'MySQL', 'Algoritmos', 'Ficheros'],
       imagen:
@@ -22,7 +22,7 @@ export class AsignaturasService {
       siglas: 'SI',
       horas: 6,
       profesor: 'Luis Miguel Serrano',
-      curso: 'DAM|DAW',
+      curso: 'DAW',
       nivel: 1,
       conocimientos: ['Windows', 'Linux', 'Bash', 'Powershell'],
       imagen:
@@ -55,7 +55,7 @@ export class AsignaturasService {
       siglas: 'ING',
       horas: 2,
       profesor: 'Rocio Pizarro',
-      curso: 'DAM|DAW',
+      curso: 'DAW',
       nivel: 2,
       conocimientos: ['Ingles', 'tecnologia', 'vocabulario'],
       imagen:
