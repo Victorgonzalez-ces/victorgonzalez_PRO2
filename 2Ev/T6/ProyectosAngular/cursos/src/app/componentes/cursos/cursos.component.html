@@ -1,3 +1,8 @@
+<div class="row" *ngFor="let item of asignaturas">
+    <app-carta-asignatura class="col" [asignatura]="item"></app-carta-asignatura>
+</div>
+
+
 <div class="row mt-4">
     <div class="col mb-4" *ngFor="let item of asignaturas">
         <div class="card" style="width: 18rem;">
@@ -13,4 +18,5 @@
         </div>
     </div>   
 </div>
+
 
