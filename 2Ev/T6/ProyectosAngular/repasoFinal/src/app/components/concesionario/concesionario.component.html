@@ -54,9 +54,45 @@
 
     <button (click)="agregarCoche()" class="btn btn-primary">Agregar</button>
 
-    <div *ngIf="listado.length > 0">
+    <div *ngIf="listado.length > 0">< <
         <p>El numero de coches es: {{ listado.length }}</p>
     </div>
     
+  </div>
+  <div class="col">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="buscar por matricula"
+      #inputMatricula
+    />
+    <select class="form-select" #selectMotor>
+      <option>termico</option>
+      <option>electrico</option>
+    </select>
+
+    <button (click)="buscarCoche(inputMatricula.value)" 
+      class="btn btn-primary">Buscar por Matricula</button>
+    <button (click)="buscarTipoMotor(selectMotor.value)"
+    class="btn btn-primary">Buscar por motor</button>
+  </div>
+
+  <div *ngIf="listadoCocheBuscado.length>0">
+    <div class="card" style="width: 18rem">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ listadoCocheBuscado[0].getMatricula }}
+        </h5>
+      </div>
+    </div>  
+  </div>
+  <div *ngFor="let item of listadoMotorCoche">
+    <div class="card" style="width: 18rem">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ item.getMarca }} {{ item.getModelo }}</h5>
+      </div>
     </div>
+  </div>
 </main>

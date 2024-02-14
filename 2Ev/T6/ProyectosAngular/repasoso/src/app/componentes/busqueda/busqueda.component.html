@@ -1,0 +1,20 @@
+<input
+    [(ngModel)]="profeBuscar"
+    class="form-control"
+    type="text"
+    placeholder="introduzca profesor: "
+    >
+
+<select [(ngModel)]="cursoBuscar" class="form-select">
+    <option>DAM</option>
+    <option>DAW</option>
+    <option>DAM|DAW</option>
+</select>
+
+<button (click)="realizarBusqueda()" class="btn btn-primary">Buscar</button>
+
+<div class="row">
+    <div class="col" *ngFor="let item of asignaturasFiltradas">
+        <app-carta-asignatura [asignatura]="item"></app-carta-asignatura>
+    </div>
+</div>

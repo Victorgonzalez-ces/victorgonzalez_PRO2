@@ -17,8 +17,8 @@ export class ConcesionarioComponent {
     motor: string = '';
     precio: string = '';
     listado: CocheClase[] = []
-
-
+    listadoCocheBuscado: any[] = []
+    listadoMotorCoche: CocheClase[] = []
     agregarCoche(){
       if(
         this.marca.length > 0 &&
@@ -61,4 +61,20 @@ export class ConcesionarioComponent {
         })
       }
     }
+
+    buscarCoche(matricula: string){
+      this.listadoCocheBuscado = []
+      let cocheBuscado = this.listado.find((item)=>{
+        return item.getMatricula == matricula
+      })
+      this.listadoCocheBuscado.push(cocheBuscado)
+    }
+  
+    buscarTipoMotor(motor: string){
+      this.listadoMotorCoche = this.listado.filter((item)=>{
+        return item.getMotor.toLocaleLowerCase() == motor.toLocaleLowerCase()
+      })
+    }
+
+
 }

@@ -1,0 +1,7 @@
+<h1>Información sobre las asignaturas</h1>
+
+<div class="row">
+    <div class="col" *ngFor="let item of asignaturas">
+        <app-carta-asignatura [asignatura]="item"></app-carta-asignatura>
+    </div>
+</div>
