@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col">
+        <button (click)="pulsacionBotones('deporte')" class="btn btn-primary">Deportes</button>
+    </div>
+    <div class="col">
+        <button (click)="pulsacionBotones('politica')" class="btn btn-primary">Politica</button>
+    </div>
+    <div class="col">
+        <button (click)="pulsacionBotones('sociedad')" class="btn btn-primary">Sociedad</button>
+    </div>
+    <div class="col">
+        <button (click)="pulsacionBotones('')" class="btn btn-primary">Todas</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h2>TITULARES</h2>
+    </div>
+    <div class="col">
+        <h2>CONTENIDO</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col" *ngFor="let item of noticias">
+        <app-carta-noticia [noticia]="item"></app-carta-noticia>
+    </div>
+</div>

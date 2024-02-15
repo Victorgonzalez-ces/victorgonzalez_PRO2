@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem;">
+    <img [src]="noticia.urlToImage | imagenes" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{noticia.title}}</h5>
+      <h6>{{noticia.description}}</h6>
+      <h6>{{noticia.publishedAt}}</h6>
+      <button (click)="pulsacionDetalle()"  class="btn btn-primary">detalles</button>
+    </div>
+  </div>
+
+

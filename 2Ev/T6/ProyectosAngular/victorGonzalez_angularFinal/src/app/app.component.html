@@ -1,0 +1,13 @@
+
+<div class="row">
+  <div class="col">
+    <img [routerLink]="['noticias']" src="https://www.centrostafad.com/wp-content/uploads/cache/images/tafad-ces-juan-pablo-ii/tafad-ces-juan-pablo-ii-515050759.png" style="width: 230px"/>
+  </div>
+  <div class="col m-10" >
+    <h1>{{textoNoticias | uppercase}}</h1>
+  </div>
+</div>
+
+<div class="container m-5">
+  <router-outlet></router-outlet>
+</div>
