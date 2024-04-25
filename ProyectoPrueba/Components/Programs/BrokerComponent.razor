@@ -1,0 +1,40 @@
+﻿@page "/broker-component"
+@using System.ComponentModel.DataAnnotations
+@using Models
+@using Services
+@inject IEmailService EmailService
+<h1>Email Sender</h1>
+<EditForm Model="@mail" OnValidSubmit="SendEmail">
+
+</EditForm>
+
+<table class="table">
+    <tr>
+        <td>Email:</td>
+        <td><input type="text" @bind="mail.Email"/></td>
+    </tr>
+    <tr>
+        <td>Subject:</td>
+        <td>
+            <input type="text" @bind="mail.Subject"/></td>
+    </tr>
+    <tr>
+        <td>Body:</td>
+        <td><input type="text" @bind="mail.Body"/></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" class="btn-success" value="Send" />
+        </td>
+    </tr>
+</table>
+
+@code {
+    MailRequest mail = new MailRequest();
+
+    private void SendEmail()
+    {
+        EmailService.SendEmailAsync(mail);
+
+    }
+}
