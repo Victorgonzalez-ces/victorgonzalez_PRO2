@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\ProyectoPrueba.csproj": {}
+    "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\ProyectoPrueba.csproj": {}
   },
   "projects": {
-    "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\ProyectoPrueba.csproj": {
+    "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\ProyectoPrueba.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\ProyectoPrueba.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\ProyectoPrueba.csproj",
         "projectName": "ProyectoPrueba",
-        "projectPath": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\ProyectoPrueba.csproj",
-        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\obj\\",
+        "projectPath": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\ProyectoPrueba.csproj",
+        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,9 +49,29 @@
               "target": "Package",
               "version": "[4.5.0, )"
             },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "SendGrid": {
               "target": "Package",
               "version": "[9.29.3, )"
+            },
+            "Syncfusion.Blazor": {
+              "target": "Package",
+              "version": "[25.2.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
             },
             "System.Net.Mail.Abstractions": {
               "target": "Package",

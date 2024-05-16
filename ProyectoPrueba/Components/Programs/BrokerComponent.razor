@@ -1,40 +1,67 @@
 ﻿@page "/broker-component"
-@using System.ComponentModel.DataAnnotations
-@using Models
-@using Services
-@inject IEmailService EmailService
-<h1>Email Sender</h1>
-<EditForm Model="@mail" OnValidSubmit="SendEmail">
+@using Microsoft.AspNetCore.Components
+@using System.Net.Mail
+@using System.Net
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.Extensions.Configuration
+@using System.Threading.Tasks
+@inject IConfiguration Configuration
 
-</EditForm>
+<h1>Sign In</h1>
 
-<table class="table">
-    <tr>
-        <td>Email:</td>
-        <td><input type="text" @bind="mail.Email"/></td>
-    </tr>
-    <tr>
-        <td>Subject:</td>
-        <td>
-            <input type="text" @bind="mail.Subject"/></td>
-    </tr>
-    <tr>
-        <td>Body:</td>
-        <td><input type="text" @bind="mail.Body"/></td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <input type="submit" class="btn-success" value="Send" />
-        </td>
-    </tr>
-</table>
+<input type="email" placeholder="Email" @bind="email" autocomplete="off" />
 
+<button class="btn btn-primary" @onclick="SendOTP">Send OTP</button>
+<label>@message</label>
 @code {
-    MailRequest mail = new MailRequest();
+    private string email;
+    private string message;
 
-    private void SendEmail()
+    private async Task SendOTP()
     {
-        EmailService.SendEmailAsync(mail);
+        message = "hola";
+    }
 
+    // Método para generar un código OTP aleatorio de 6 dígitos
+    private string GenerateOTP()
+    {
+        Random random = new Random();
+        int otpNumber = random.Next(100000, 999999);
+        return otpNumber.ToString();
+    }
+
+    // Método para enviar correo electrónico con el código OTP
+    private void SendEmail(string email, string otpCode)
+    {
+        try
+        {
+            var smtpSettings = Configuration.GetSection("SmtpSettings");
+            string host = smtpSettings["Host"];
+            int port = int.Parse(smtpSettings["Port"]);
+            string userName = smtpSettings["UserName"];
+            string password = smtpSettings["Password"];
+
+            using (var client = new SmtpClient(host, port))
+            {
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(userName, password);
+                client.EnableSsl = true;
+
+                var message = new MailMessage();
+                message.From = new MailAddress(userName);
+                message.To.Add(new MailAddress(email));
+                message.Subject = "Your OTP Code";
+                message.Body = $"Your OTP Code is: {otpCode}";
+
+                client.Send(message);
+            }
+
+            Console.WriteLine($"OTP sent to {email}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error sending email: {ex.Message}");
+        }
     }
 }
+  

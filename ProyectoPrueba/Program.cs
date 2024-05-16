@@ -1,12 +1,10 @@
 using ProyectoPrueba.Components;
 using Microsoft.Extensions.DependencyInjection;
-using ProyectoPrueba.Components.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-builder.Services.AddSingleton<IEmailService, EmailService>(); // Aquí EmailService es la implementación de IEmailService
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

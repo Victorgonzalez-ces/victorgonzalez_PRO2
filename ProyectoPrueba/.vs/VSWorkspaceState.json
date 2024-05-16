@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Components",
+    "\\Components\\Layout",
+    "\\Components\\Models",
+    "\\Components\\Programs",
+    "\\Components\\Services"
+  ],
+  "SelectedNode": "\\Components\\Services\\IEmailService.cs",
+  "PreviewInSolutionExplorer": false
+}

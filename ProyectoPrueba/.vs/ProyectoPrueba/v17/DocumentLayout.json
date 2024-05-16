@@ -1,42 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\",
+  "WorkspaceRootPath": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\components\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:components\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\components\\programs\\brokercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\components\\programs\\brokercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:components\\programs\\brokercomponent.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\components\\models\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:components\\models\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\components\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:components\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\components\\models\\mailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:components\\models\\mailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\components\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\components\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:components\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\victor\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|c:\\users\\usuario\\documents\\github\\victorgonzalez_pro2\\proyectoprueba\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C882A8C4-2197-45E6-BF59-05F959F7B750}|ProyectoPrueba.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,30 +34,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-13T07:54:27.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\appsettings.json",
+              "ToolTip": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-04-24T10:33:08.976Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Startup.cs",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Startup.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Startup.cs",
               "RelativeDocumentMoniker": "Components\\Startup.cs",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Startup.cs",
+              "ToolTip": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Startup.cs",
               "RelativeToolTip": "Components\\Startup.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAACMAAAAdAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwBwAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T10:29:21.325Z",
               "EditorCaption": ""
@@ -77,90 +82,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Services\\EmailService.cs",
-              "RelativeDocumentMoniker": "Components\\Services\\EmailService.cs",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Services\\EmailService.cs",
-              "RelativeToolTip": "Components\\Services\\EmailService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAABxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T08:35:18.131Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "BrokerComponent.razor",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Programs\\BrokerComponent.razor",
+              "DocumentMoniker": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Programs\\BrokerComponent.razor",
               "RelativeDocumentMoniker": "Components\\Programs\\BrokerComponent.razor",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Programs\\BrokerComponent.razor",
+              "ToolTip": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Programs\\BrokerComponent.razor",
               "RelativeToolTip": "Components\\Programs\\BrokerComponent.razor",
-              "ViewState": "AQIAAAEAAAAAAAAAAAArwCYAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-22T12:33:50.241Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MailRequest.cs",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Models\\MailRequest.cs",
-              "RelativeDocumentMoniker": "Components\\Models\\MailRequest.cs",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Models\\MailRequest.cs",
-              "RelativeToolTip": "Components\\Models\\MailRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T10:05:28.596Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IEmailService.cs",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Services\\IEmailService.cs",
-              "RelativeDocumentMoniker": "Components\\Services\\IEmailService.cs",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Services\\IEmailService.cs",
-              "RelativeToolTip": "Components\\Services\\IEmailService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T08:31:44.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SmtpSettings.cs",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Models\\SmtpSettings.cs",
-              "RelativeDocumentMoniker": "Components\\Models\\SmtpSettings.cs",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Models\\SmtpSettings.cs",
-              "RelativeToolTip": "Components\\Models\\SmtpSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAlAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T10:07:55.316Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Program.cs",
+              "ToolTip": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAAA4AAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T09:14:38.715Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Layout\\NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\Users\\victor\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\usuario\\Documents\\GitHub\\victorgonzalez_PRO2\\ProyectoPrueba\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACEAAAAGAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-22T10:43:09.302Z",
               "EditorCaption": ""
